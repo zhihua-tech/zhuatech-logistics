@@ -33,6 +33,12 @@ ZhuaTech LOGISTICS 是知华科技推出的物流控制塔系统社区源码版�
 
 后端还提供运营风险评估接口，结合积压、延期、关键事项、容量利用率与数据完整度给出分级结果和行动建议。该结果仅用于软件学习演示，不替代企业正式风控与业务决策。
 
+## 新增：运输装载计划校验
+
+装载计划服务同时计算重量利用率和容积利用率，并校验配送停靠点、危险品属性及隔离确认，输出 `READY / REVIEW / BLOCK` 结论和调整原因，可在波次发布或车辆装车前发现超载、超容与配载风险。
+
+接口：`POST /api/admin/load-plan`。
+
 ## 技术结构
 
 ```text
@@ -101,4 +107,3 @@ curl -u admin:admin123 -H 'Content-Type: application/json' \
 本仓库不包含真实业务数据、真实生产接口凭据或生产配置。请勿提交个人隐私与业务敏感信息、访问令牌、私钥或真实业务数据。安全问题请按 [SECURITY.md](SECURITY.md) 私下报告；参与开发前请阅读 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 关键词：知华科技 LOGISTICS、物流管理系统、运输运营管理、物流控制塔、Java 物流系统、Spring Boot LOGISTICS、Vue 企业管理系统、上海软件定制开发。
-

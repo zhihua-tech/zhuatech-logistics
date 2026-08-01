@@ -37,4 +37,14 @@ class LogisticsApiIntegrationTests {
     @Test void anonymousRequestIsRejected() throws Exception {
         mvc.perform(get("/api/workspace/tasks")).andExpect(status().isUnauthorized());
     }
+
+    @Test void adminCanEvaluateLoadPlan() throws Exception {
+        mvc.perform(post("/api/admin/load-plan").with(httpBasic("admin", "admin123"))
+            .contentType(MediaType.APPLICATION_JSON)
+            .content("{\"weightCapacityKg\":10000,\"plannedWeightKg\":9800,\"volumeCapacityM3\":50,\"plannedVolumeM3\":48,\"stopCount\":18,\"hazardousGoods\":false,\"separationConfirmed\":false}"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.data.weightRate").value(98.0))
+            .andExpect(jsonPath("$.data.volumeRate").value(96.0))
+            .andExpect(jsonPath("$.data.decision").value("REVIEW"));
+    }
 }
