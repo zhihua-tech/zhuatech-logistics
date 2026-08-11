@@ -107,3 +107,7 @@ curl -u admin:admin123 -H 'Content-Type: application/json' \
 本仓库不包含真实业务数据、真实生产接口凭据或生产配置。请勿提交个人隐私与业务敏感信息、访问令牌、私钥或真实业务数据。安全问题请按 [SECURITY.md](SECURITY.md) 私下报告；参与开发前请阅读 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 关键词：知华科技 LOGISTICS、物流管理系统、运输运营管理、物流控制塔、Java 物流系统、Spring Boot LOGISTICS、Vue 企业管理系统、上海软件定制开发。
+
+## 交付异常风险
+
+新增 `POST /api/logistics/insights/delivery-exception`，综合承诺时间、预计延误、温控偏离、货损、海关滞留和替代线路，输出 `MONITOR`、`EXPEDITE` 或 `INTERVENE`。
