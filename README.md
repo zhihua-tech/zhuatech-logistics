@@ -111,3 +111,7 @@ curl -u admin:admin123 -H 'Content-Type: application/json' \
 ## 交付异常风险
 
 新增 `POST /api/logistics/insights/delivery-exception`，综合承诺时间、预计延误、温控偏离、货损、海关滞留和替代线路，输出 `MONITOR`、`EXPEDITE` 或 `INTERVENE`。
+
+## 企业级物流发运治理
+
+新增 `POST /api/enterprise/logistics/shipment-release-governance`，统一校验承运资质、单证、危险品、海关、保险、容量、冷链、路线和交接责任，返回 `DISPATCH / REVIEW / BLOCKED`。详见 [发运治理说明](docs/ENTERPRISE_SHIPMENT_RELEASE.md)。
