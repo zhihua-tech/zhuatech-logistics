@@ -9,8 +9,14 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class LoadPlanService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public LoadDecision evaluate(LoadRequest request) {
         double weightRate = Math.round(request.plannedWeightKg() * 1000.0 / request.weightCapacityKg()) / 10.0;
         double volumeRate = Math.round(request.plannedVolumeM3() * 1000.0 / request.volumeCapacityM3()) / 10.0;
@@ -26,11 +32,17 @@ public class LoadPlanService {
         return new LoadDecision(weightRate, volumeRate, decision, reasons);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record LoadRequest(@NotNull @Positive Integer weightCapacityKg,
         @NotNull @Min(0) Integer plannedWeightKg,
         @NotNull @Positive Integer volumeCapacityM3,
         @NotNull @Min(0) Integer plannedVolumeM3,
         @NotNull @Min(1) @Max(1000) Integer stopCount,
         @NotNull Boolean hazardousGoods, @NotNull Boolean separationConfirmed) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record LoadDecision(double weightRate, double volumeRate, String decision, List<String> reasons) {}
 }
