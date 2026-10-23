@@ -1,0 +1,59 @@
+[
+  {
+    "patch": {},
+    "expected": {
+      "decision": "PASS",
+      "volumetricKg": "#10",
+      "chargeableKg": "#10",
+      "candidateFreight": "#50"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "heightCm": "60"
+    },
+    "expected": {
+      "decision": "REVIEW",
+      "candidateFreight": "#100"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "actualKg": "10.1"
+    },
+    "expected": {
+      "decision": "PASS",
+      "chargeableKg": "#10.5",
+      "candidateFreight": "#52.5"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "rate": "0"
+    },
+    "expected": {
+      "candidateFreight": "#20"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "divisor": "0"
+    },
+    "expected": {},
+    "error": true
+  },
+  {
+    "patch": {
+      "heightCm": "30.000001"
+    },
+    "expected": {
+      "decision": "REVIEW",
+      "chargeableKg": "#10.5"
+    },
+    "error": false
+  }
+]
